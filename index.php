@@ -1,27 +1,36 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Demo</title>
-	
+    <meta charset="UTF-8">
+    <title>Demo</title>
 </head>
+
 <body>
+    <?php
+        $books = [
+            [
+                'name' => 'Do Androids Dream of Electric Sheep',
+                'author' => 'Philip K. Dick',
+                'releaseYear' => 1968,
+                'purchaseUrl' => 'http://example.com'
+            ],
+            [
+                'name' => 'Project Hail Mary',
+                'author' => 'Andy Weir',
+                'releaseYear' => 2021,
+                'purchaseUrl' => 'http://example.com'
+            ]
+        ];
+    ?>
 
-	<h1>Recommended Books</h1>
-
-	<?php 
-		$books = [
-			"Do and dream of electric sheap",
-			"The facebook",
-			"Hail Mary"
-		];
-	?>
-
-	<ul>
-		<?php foreach ($books as $book) : ?>
-			<li><?= $book ?></li>
-		<?php endforeach; ?>
-	</ul>
-
+    <ul>
+        <?php foreach ($books as $book) : ?>
+            <li>
+                <a href="<?= $book['purchaseUrl'] ?>">
+                    <?= $book['name'] ?> (<?= $book['releaseYear'] ?>)
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
