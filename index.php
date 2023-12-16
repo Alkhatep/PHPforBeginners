@@ -1,19 +1,13 @@
 <?php
 
 require 'functions.php';
-
+require 'Database.php';
 // require 'router.php';
 
-// connect to our MySQL database.
+$db = new Database();
 
-$dsn = "mysql:host=localhost;port=3306;dbname=myapp;charset=utf8mb4";
-$pdo = new PDO($dsn, 'root');
+$posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 
-$statement = $pdo->prepare("select * from posts");
-$statement->execute();
 
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($posts as $post) {
-	echo "<li>" . $post['title'] . "</li>";
-}
+dd($posts);
