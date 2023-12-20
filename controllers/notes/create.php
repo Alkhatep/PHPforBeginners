@@ -3,11 +3,9 @@
 use Core\Database;
 use Core\Validator;
 
-require base_path('Validator.php');
-
-
 $config = require base_path('config.php');
 $db = new Database($config['database']);
+
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
