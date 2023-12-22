@@ -28,6 +28,6 @@ class LoginForm
 
 	public function error($field, $message)
 	{
-		$this->errors['$field'] = $message;
+		$this->errors[$field] = $message;
 	}
 }
