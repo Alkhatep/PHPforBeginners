@@ -38,20 +38,8 @@ function view($path, $atributes = []) {
 	require base_path('views/' . $path);
 }
 
-function login($user)
+function redirect($path)
 {
-	$_SESSION['user'] = [
-		'email' => $user['email']
-	];
-
-	session_regenerate_id(true);
-}
-
-function logout()
-{
-	$_SESSION = [];
-	session_destroy();
-	$prams = session_get_cookie_params();
-
-	setcookie('PHPSESSID', '', time() - 3600, $prams['path'], $prams['domain'], $prams['secure'], $prams['httponly']);
+	header("location: {$path}");
+	exit();
 }
